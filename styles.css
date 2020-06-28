@@ -216,7 +216,30 @@ body {
     }
 
     .button {
-        width: 45%
+        cursor: pointer;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-left: 1%;
+        margin-right: 1%;
+        text-align: center;
+        width: 45%;
+        outline: none;
+        font-family: 'nunito';
+        font-weight: bold;
+        box-shadow: 3px 3px 3px 1px;
+        transition: .4s;
+    }
+    
+    .button:hover {
+        transform: scale(1);
+        box-shadow: 3px 3px 3px 1px;
+    }
+    
+    .button:active {
+        transform: scale(1);
+        box-shadow: 0px 0px 0px 0px;
+        transition: .2s;
     }
 
     .face {
