@@ -1,1 +1,1 @@
-cubo
+Web para tirar un dado
