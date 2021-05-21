@@ -2,6 +2,14 @@
 
 let count;
 let textResult;
+let facesCube = {
+    1 : 'face-one',
+    2 : 'face-two',
+    3 : 'face-three',
+    4 : 'face-four',
+    5 : 'face-five',
+    6 : 'face-six'
+}
 
 window.onload = () => {
     textResult = document.getElementById('result');
@@ -14,47 +22,20 @@ window.onload = () => {
     cubeBox.classList.add('cube-box-animated');
 }
 
+function makeMessage(value) {
+    return `Salió ${value}, si no tenias ganas de que salga eso, presioná en "Desver que onda" para volver a tirar`
+}
+
+
 function roll() {
-    count++;
     let cube = document.getElementById('cube');
-    let faceArray = ['1', '2', '3', '4', '5', '6'];
-    let randomValue = faceArray[Math.floor(Math.random() * faceArray.length)];
-    
+    let randomValue = Math.floor(Math.random()*(6-1+1)+1);
+    count++;
     if(count === 1) {
-        switch(randomValue) {
-            case '1':
-                cube.classList.add('face-one');
-                textResult.classList.remove('none');
-                textResult.innerHTML = `Salió ${randomValue}, si no tenias ganas de que salga eso, presioná en "Desver que onda" para volver a tirar`;
-                break;
-            case '2':
-                cube.classList.add('face-two');
-                textResult.classList.remove('none');
-                textResult.innerHTML = `Salió ${randomValue}, si no tenias ganas de que salga eso, presioná en "Desver que onda" para volver a tirar`;
-                break;
-            case '3':
-                cube.classList.add('face-three');
-                textResult.classList.remove('none');
-                textResult.innerHTML = `Salió ${randomValue}, si no tenias ganas de que salga eso, presioná en "Desver que onda" para volver a tirar`;
-                break;
-            case '4':
-                cube.classList.add('face-four');
-                textResult.classList.remove('none');
-                textResult.innerHTML = `Salió ${randomValue}, si no tenias ganas de que salga eso, presioná en "Desver que onda" para volver a tirar`;
-                break;
-            case '5':
-                cube.classList.add('face-five');
-                textResult.classList.remove('none');
-                textResult.innerHTML = `Salió ${randomValue}, si no tenias ganas de que salga eso, presioná en "Desver que onda" para volver a tirar`;
-                break;
-            case '6':
-                cube.classList.add('face-six');
-                textResult.classList.remove('none');
-                textResult.innerHTML = `Salió ${randomValue}, si no tenias ganas de que salga eso, presioná en "Desver que onda" para volver a tirar`;
-                break;
-            default:
-                break;
-        }
+        const SHOWFACE = facesCube[randomValue];
+        cube.classList.add(SHOWFACE);
+        textResult.classList.remove('none');
+        textResult.innerHTML = makeMessage(randomValue);
     }
 }
 
@@ -65,5 +46,3 @@ function restart() {
         textResult.classList.add('none')
     }
 }
-
-//array[Math.floor(Math.random() * array.length)]
